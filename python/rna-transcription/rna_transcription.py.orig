@@ -1,0 +1,10 @@
+def to_rna(dna_strand):
+    rna_strand=''
+    dna = ('A','C','G','T')
+    rna = ('U','G','C','A')
+    for nucl in dna_strand:
+        if nucl.upper() in dna:
+            rna_strand += rna[dna.index(nucl.upper())]
+        else:
+            raise Exception("Bad nucleus. Check input dna strand.")
+    return rna_strand
