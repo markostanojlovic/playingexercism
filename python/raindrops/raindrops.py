@@ -1,22 +1,11 @@
-from functools import reduce
-
-def factors(n):
-    return set(reduce(list.__add__,
-                ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
-
 def raindrops(number):
     word = ''
-    factorized = factors(number)
-    found = False
-    if 3 in factorized:
+    if number % 3 == 0:
         word += "Pling"
-        found = True
-    if 5 in factorized:
+    if number % 5 == 0:
         word += "Plang"
-        found = True
-    if 7 in factorized:
+    if number % 7 == 0:
         word += "Plong"
-        found = True
-    if not found:
+    if word == '':
         word = str(number)
     return word
