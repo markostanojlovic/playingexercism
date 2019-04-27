@@ -7,10 +7,10 @@ STUDENTS = [ "Alice", "Bob", "Charlie", "David",
 
 class Garden(object):
     def __init__(self, diagram, students=None):
-        self.mapping = defaultdict(str)
+        self.mapping = defaultdict(list)
         for idx, name in enumerate(sorted(students or STUDENTS)):
             for row in diagram.split():
-                self.mapping[name] += row[idx*2:(idx+1)*2]
+                self.mapping[name] += [PLANTS[plant] for plant in row[idx*2:(idx+1)*2]]
 
     def plants(self, student):
-        return [ PLANTS[plant] for plant in self.mapping[student] ]
+        return self.mapping[student]
